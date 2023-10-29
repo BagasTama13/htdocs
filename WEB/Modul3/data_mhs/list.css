@@ -1,0 +1,32 @@
+*,
+html {
+  padding: 0;
+  margin: 0;
+  
+}
+
+ul {
+    padding-left: 5px;
+    list-style-type: none;
+    color: #111;
+    border-radius: 0;
+    font-size:30px;
+}
+
+li a {
+    padding-left: 20px;
+    text-decoration: none;
+    color: #111;padding-right: 20;
+}
+
+ul :hover {
+    transition: .5s ease-in-out;
+    background-color: #999;
+    transition-delay: .2s;
+    border-radius: 50px;
+}
+
+.description {
+    font-size: 10px;
+    color: #999;
+}
