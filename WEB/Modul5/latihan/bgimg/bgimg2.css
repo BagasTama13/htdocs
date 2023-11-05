@@ -1,0 +1,13 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url(/WEB/Modul4/Praktikum6/img/bgrpl.jpg);
+    background-repeat:no-repeat;
+}
+
+h1{
+    height: 1000vh;
+}

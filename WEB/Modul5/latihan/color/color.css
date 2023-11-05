@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+h1 {
+    margin-top: 30px;
+    background-color: dodgerblue;
+    text-align: center;
+}
+
+h3 {padding: 20px;
+    justify-content: center;
+    margin-top: 30px;
+    background-color: tomato;
+    text-align: center;
+
+}
+
+
+.title {
+    font-size: 30px;
+    margin-top: 30px;
+    color: dodgerblue;
+    text-align: center;
+    
+}
+
+.desc {
+    justify-content: center;
+    margin-top: 30px;
+    color: tomato;
+    text-align: center;
+
+}
+
+.tomato {
+    justify-content: center;
+    margin-top: 30px;
+    text-align: center;
+    border: solid 1px tomato;
+    width: 20%;
+}
+.blue {
+    justify-content: center;
+    margin-top: 10px;
+    text-align: center;
+    border: solid 1px dodgerblue;
+    width: 20%;
+}
+
+.violet {
+    justify-content: center;
+    margin-top: 10px;
+    text-align: center;
+    border: solid 1px violet;
+    width: 20%;
+}
