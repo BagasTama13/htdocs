@@ -10,6 +10,7 @@ body{
     padding-top: 24%;
     margin-right: 30px;
     text-align: end;
+    font-size: 2.2em;
 }
 .header h3 {
     color: white;
@@ -30,7 +31,6 @@ body{
     background-image: url("../image/side.jpg");
     background-position: center;
     background-size: cover;
-    background-color: whitesmoke;
     width: 200px;
     height: max-content;
     padding: 24px 2px 24px 2px;
@@ -38,6 +38,11 @@ body{
     border-top-left-radius: 50px;
     box-shadow: 1px 1px 10px 2px gray;
 }
+
+.kiri li {
+    color: white;
+}
+
 .kanan {
     flex: 80%;
 }
@@ -76,7 +81,7 @@ h4 {
     min-height: 17px;
     border-bottom: 1px solid white;
 }
-.list>li>a {
+.list li a {
     text-decoration: none;
 }
 
@@ -102,7 +107,6 @@ h4 {
 }
 .content {
     background-image: url("../image/content.jpg");
-    background-position: center;
     background-size: cover;
     background-blend-mode: darken;
     background-color: whitesmoke;
