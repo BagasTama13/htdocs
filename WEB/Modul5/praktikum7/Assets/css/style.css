@@ -105,6 +105,15 @@ h4 {
     padding: 0 24px 0 24px;
     text-decoration: none;
 }
+
+.navbar li :hover {
+    background-color: rgb(3, 154, 3);
+    transition: ease-in-out .5s;
+    border-radius: 30px;
+
+}
+
+
 .content {
     background-image: url("../image/content.jpg");
     background-size: cover;
