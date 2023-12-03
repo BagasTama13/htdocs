@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>FORM</title>
+        <link rel="stylesheet" href="../css/style1.csss">
+        
+        <link rel="stylesheet" href="../css/styleForm.css">
+    </head>
+    
+    <body>
+        <h2>Isi Formulir Dibawah Ini</h2>
+        
+    <form action="form.php" method="post" enctype="multipart/form-data">
+        <table>
+            <tr>
+                <td>Nama</td>
+                <td><input type="text" id="nama" name="Name" placeholder="Masukkan Nama Anda">
+            </tr>
+            <tr>
+                <td>Jenis Kelamin  </td>
+                <td>
+                    <input type="radio" id="sex" name="sex"value="Man">Laki-Laki
+                    <input type="radio" id="sex" name="sex"value="Woman">Perempuan
+                </td>
+            </tr>
+            <tr>
+                <td>Alamat</td>
+                <td><input type="text" id="alamat" name="Alamat" placeholder="Masukkan Alamat Anda"></td>
+            </tr>
+            <tr>
+                <td>Asal Sekolah</td>
+                <td><input type="text" id="asal" name="asal" placeholder="Masukkan Asal Sekolah Anda"</td>
+            </tr>
+            <tr>
+                <td>Prody</td>
+                <td>
+                    <select id="Prody" name="Prody">
+                        <option value="" selected disabled>Pilih Jurusan </option>
+                        <option value="islam">Akuntansi Keuangan Publik</option>
+                        <option value="kristen">Administrasi Bisnis Internasional</option>
+                        <option value="hindu">Rekayasa Perangkat Lunak</option>
+
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="text" id="Email" name="Email" placeholder="Masukkan Email Anda"></td>
+            </tr>
+            <tr>
+                <td>No Telepon/HP</td>
+                <td><input type="text" id="no" name="no" placeholder="Masukkan No Telepon/HP Anda"></td>
+            </tr>
+            <tr> 
+                <td>Foto </td>
+                <td><input type="file" id="upload" name="upload" value="" width="200">
+                    <====== Unggah Foto 3x4 Formal
+                </td>
+            </tr>
+        </table>
+        <table>
+                    <td></td>
+                    <td><input type="button" value="Submit"></td>
+                </tr>
+            </tr>
+        </table>
+    </form>
+
+    </body>
+</html>
