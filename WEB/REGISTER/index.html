@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP in HTML Example</title>
+</head>
+<body>
+
+<h1>PHP in HTML Example</h1>
+
+<?php include('proses.php'); ?>
+
+<p>Tag Panjang PHP: <?php echo $pesan_php; ?></p>
+
+<p>Tag ASP: <%= pesan_asp %></p>
+
+<script language="php">
+  // Ini adalah tag script PHP, jarang digunakan
+  document.write("<p>Tag Script PHP: <?php echo $pesan_script; ?></p>");
+</script>
+
+</body>
+</html>

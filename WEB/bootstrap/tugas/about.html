@@ -4,10 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <!-- meta -->
+    <meta name="keywords" content="transportation" />
+    <meta name="description" content="Business" />
+    <meta name="author" content="Tama" />
+    <!-- Judul -->
+    <link rel="shortcut icon" href="images/fevicon.png" type="">
+    <title>BP Trans</title>
+    <!-- style -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/styleForm.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
@@ -16,7 +22,7 @@
 <body>
    
     <!-- Component Jumbroton -->
-    <div class="mt-7 p-3 bg-secondary text-white layout_padding">
+    <div class="mt-7 p-3 bg-secondary text-white">
         <div class="container"><span>
             <h1 class="display-4">BP Transportation</h1>
             <p class="lead">Cepat, Tepat, dan Akurat</p>
@@ -26,7 +32,7 @@
 
      <!-- Component NavBar -->
      <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
-        <div class="container-fluid col-12">
+        <div class="container-fluid">
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -45,10 +51,10 @@
                         <a class="nav-link" href="jasa.html">Jasa</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="pesan.html">Pesan</a>
+                        <a class="nav-link" href="pesan.html">Pesan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html">Tentang Kami</a>
+                        <a class="nav-link active" href="about.html">Tentang Kami</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="contact.html">Hubungi Kami</a>
@@ -57,64 +63,41 @@
         </div>
     </nav>
 
-     
-    <form >
-        <table>
-            <tr>
-                <td>Nama</td>
-                <td><input type="text" id="nama" name="Name" placeholder="Masukkan Nama Pemesan">
-            </tr>
-            <tr>
-                <td>Alamat</td>
-                <td><input type="text" id="alamat" name="Alamat" placeholder="Masukkan Alamat Anda"></td>
-            </tr>
-            <tr>
-                <td>Tujuan</td>
-                <td><input type="text" id="asal" name="asal" placeholder="Masukkan Alamat tujuan "></td>
-            </tr>
-            <tr>
-                <td>Detail Tujuan</td>
-                <td><textarea rows="3" cols="3"></textarea></td>
-            </tr>
-            <tr>
-                <td>pesanan</td>
-                <td>
-                    <select id="Pesan" name="pesan">
-                        <option value="" selected disabled>apa yang anda pesan? </option>
-                        
-                        <option value="Grajen"> Serbuk gerjaji</option>
-                        <option value="Pasir">Pasir</option>
-                        <option value="Bata">Batu Bata</option>
-                        <option value="Genteng">Genteng</option>
-                        <option value="sewaMobil">Sewa pick up (supir/tidak)</option>
-                        <option value="sewaTenda">Sewa tenda (duka/nikah)</option>
-                        <option value="sewaKuli">Sewa kuli (sertakan detail pekerjaan)</option>
 
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>Email</td>
-                <td><input type="email" id="Email" name="Email" placeholder="Masukkan Email Anda"></td>
-            </tr>
-            <tr>
-                <td>No Telepon/HP</td>
-                <td><input type="number" id="no" name="no" placeholder="Masukkan No Telepon/HP penerima"></td>
-            </tr>
-            <tr> 
-                <td>Foto </td>
-                <td><input type="file" id="upload" name="upload" value="" width="200">
-                    <====== Unggah Foto tempat pengiriman
-                </td>
-            </tr>
-        </table>
-        <table>
-                    <td></td>
-                    <td><input type="button" value="Submit"></td>
-                </tr>
-            </tr>
-        </table>
-    </form>
+    
+  <!-- about section -->
+
+  <section class="about_section layout_padding">
+    <div class="container  ">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="detail-box">
+            <div class="heading_container">
+              <h2>
+                Tentang <span>Kami</span>
+              </h2>
+            </div>
+            <p>
+              kami menyediakan banyak layanan bagi para customer. customer dapat menggunakan jasa kami sesuai dengan yang mereka butuhkan,
+              mulai dari mengantar barang yang customer butuhkan, sampai tenaga kerja yang diperlukan.<br>
+              BP Transportation berdiri sejak tahun 2006 dan sudah memiliki beberapa cabang dan koneksi di berbagai daerah.<br>
+              kami mengusahakan barang yang di terima oleh customer adalah barang yang mereka inginkan asal pilihannya jelas dan tidak ambigu.<br>
+
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 ">
+          <div class="img-box">
+            <img src="images/pick up.jpg" alt="">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- end about section -->
 
     
   <!-- footer -->
@@ -135,7 +118,8 @@
   </section>
   <!-- footer end -->
 
-    
+
+
     <script src="js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
