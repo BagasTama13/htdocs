@@ -11,13 +11,17 @@
         $username = $_POST['username'];
         $password = $_POST['password'];
         
-        $sql = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
+        $hash_password = hash("sha256",$password);
+
+        
+        $sql = "SELECT * FROM users WHERE username = '$username' AND password = '$hash_password'";
         $result = $db->query($sql);
 
         if ($result->num_rows>0){
             $data = $result->fetch_assoc();
 
-            $_SESSION["username"] = $data["username"];
+            $_SESSION["username"] = $username;
+            $_SESSION["is_login"] = true;
       
             header("location: input_data/index.php");
         }
@@ -37,10 +41,10 @@ if (isset($_POST['register'])) {
     } else {
         $username = $_POST['username'];
         $password = $_POST['password'];
-
+        $hash_password = hash("sha256",$password);
         // Gunakan prepared statement
         $stmt = $db->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
-        $stmt->bind_param("ss", $username, $password);
+        $stmt->bind_param("ss", $username, $hash_password);
 
         try {
             // Eksekusi prepared statement

@@ -1,94 +1,119 @@
 <!-- Header -->
-<?php include "../header.php" ?>
-
-<div class="container text-left">
-<a href="home.php" class="btn btn-dark mt-3">Kembali
-</a>
-</div>
+<?php include "../header.php"; ?>
+<?php include "../db.php"; ?>
 
 <?php
-// checking if the variable is set or not and if set adding the set data value to variable userid
-if (isset($_GET['survei_id'])) {
-    $surveiid = $_GET['survei_id'];
-}   
+// Initialize variable for messages
+$message = "";
 
-// SQL query to select all the data from the table where id = $userid
-$query = "SELECT * FROM survei WHERE id_survei = $surveiid ";
-$view_survei = mysqli_query($conn, $query);
+// Check if pasien_id is set in the URL
+if (isset($_GET['pasien_id'])) {
+    $pasien_id = $_GET['pasien_id'];
 
-while ($row = mysqli_fetch_assoc($view_survei)) {
-    $id = $row['id_survei'];
-    $icon = $row['icon'];
-    $judul = $row['judul'];
-    $link = $row['link'];
-   
+    // Using prepared statement to prevent SQL injection
+    $query = "SELECT * FROM pasien WHERE id = ?";
+    $stmt = mysqli_prepare($db, $query);
+
+    if ($stmt) {
+        mysqli_stmt_bind_param($stmt, "i", $pasien_id);
+        mysqli_stmt_execute($stmt);
+
+        $result = mysqli_stmt_get_result($stmt);
+
+        if ($result) {
+            // Check if data is found
+            if (mysqli_num_rows($result) > 0) {
+                $pasien = mysqli_fetch_assoc($result);
+
+                // Extracting data for better readability
+                $nama = $pasien['nama'];
+                $umur = $pasien['umur'];
+                $stadium = $pasien['stadium'];
+                $lfg = $pasien['lfg'];
+                $anjuran_nutrisi = $pasien['anjuran_nutrisi'];
+                $makanan_dianjurkan = $pasien['makanan_dianjurkan'];
+            } else {
+                $message = "Data pasien tidak ditemukan.";
+            }
+
+            mysqli_free_result($result);
+        } else {
+            $message = "Error saat mengambil data: " . mysqli_error($db);
+        }
+
+        mysqli_stmt_close($stmt);
+    } else {
+        $message = "Error saat mempersiapkan pernyataan: " . mysqli_error($db);
+    }
+} else {
+    $message = "ID pasien tidak valid. Parameter pasien_id tidak ditemukan dalam URL.";
 }
 
-//Processing form data when form is submitted
-if (isset($_POST['update'])) {
-    // $icon = $_POST['icon'];
-    $judul = $_POST['judul'];
-    $link = $_POST['link'];
-    $icon = $_FILES['icon']['name'];
-    $tmp = $_FILES['icon']['tmp_name'];
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Sanitize and validate form inputs
 
-$fotobaru = date('dmYHis').$icon;
-// Set path folder tempat menyimpan fotonya
-    $path = "images/".$fotobaru;
+    // Using prepared statement to update data
+    $update_query = "UPDATE pasien SET nama = ?, umur = ?, stadium = ?, lfg = ?, anjuran_nutrisi =?, makanan_dianjurkan = ?  WHERE id = ?";
+    $update_stmt = mysqli_prepare($db, $update_query);
 
-if(move_uploaded_file($tmp, $path)){
-    $query = "UPDATE survei SET icon = '{$fotobaru}' ,judul = '{$judul}' , link = '{$link}' WHERE id_survei = $surveiid";
-    $update_user = mysqli_query($conn, $query);
+    if ($update_stmt) {
+        mysqli_stmt_bind_param($update_stmt, "ssssssi", $nama, $umur, $stadium, $lfg, $anjuran_nutrisi, $makanan_dianjurkan, $pasien_id);
+        mysqli_stmt_execute($update_stmt);
 
-//dispaying proper message for the user to see wheter the query excuted perfectly or not
-if (!$update_user ) {
-    echo "something went wrong ". mysqli_error($conn);
-    
-}else{
-   
-    echo "<script type='text/javascript'>alert('Mengedit Data Berhasil')</script>";
+        mysqli_stmt_close($update_stmt);
+
+        $message = "Data pasien $nama berhasil diperbarui.";
+        header("location: home.php");
+        exit();
+    } else {
+        $message = "Error saat mempersiapkan pernyataan update: " . mysqli_error($db);
     }
 }
-}
-// SQL query to update the data in user table where the id = $userid 
-    // $query = "UPDATE survei SET icon = '{$fotobaru}' ,judul = '{$judul}' , link = '{$link}' WHERE id_survei = $surveiid";
-    // $update_user = mysqli_query($conn, $query);
-
-    // echo "<script type='text/javascript'>alert('Mengedit Data Berhasil')</script>";
-    // }
 ?>
 
-<h1 class="text-center">Update Survei Details</h1>
+<!-- Navbar -->
+<?php include "../navbar.php"; ?>
 
-<div class="container ">
+<div style="background-image: url(../../../img/bg.jpg); height:200vhvh; background-size: cover;border-radius: 30px; "
+    class="container p-1 mb-1 text-black">
+    <a href="home.php" class="btn btn-warning mt-1 ml-2">Kembali</a>
 
-    <form action="" method="post" enctype="multipart/form-data">
-    <div class="form-group">
-        <label for="icon">Icon</label>
-        <input type="file" name="icon" class="form-control" value="<?php echo $fotobaru ?>">
+    <div>
+        <div class="container col-md-10">
+            <form action="" method="post" enctype="multipart/form-data">
+                <fieldset>
+                    <h3 style="text-align: center;">INPUT DATA PASIEN</h3>
+                    <p class="text-danger"><?= $message ?></p>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="nama" class="for-label">Nama</label>
+                            <input type="text" name="nama" class="form-control" value="<?= $nama ?>" required>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="umur" class="for-label">Umur</label>
+                            <input type="number" name="umur" class="form-control" value="<?= $umur ?>" required>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="stadium" class="for-label">Stadium</label>
+                            <input type="number" name="stadium" class="form-control" value="<?= $stadium ?>" required>
+                        </div>
+                    </div>
 
+                    <label for="lfg" class="for-label">LFG</label>
+                    <input type="text" name="lfg" class="form-control" value="<?= $lfg ?>" required>
+                    <label for="anjuran_nutrisi" class="for-label">Anjuran Nutrisi</label>
+                    <textarea type="comments" name="anjuran_nutrisi" class="form-control" required><?= $anjuran_nutrisi ?></textarea>
+                    <label for="makanan_dianjurkan" class="for-label">Makanan yang dianjurkan</label>
+                    <textarea type="comments" name="makanan_dianjurkan" class="form-control" required><?= $makanan_dianjurkan ?></textarea>
+
+                    <div class="form-group ml-2" style="display: flex; justify-content:space-between">
+                        <input type="submit" name="update" class="btn btn-primary mt-2" value="Submit">
+                    </div>
+                </fieldset>
+            </form>
+        </div>
     </div>
-    
-    <div class="form-group">
-        <label for="judul">Judul Survei</label>
-        <input type="text" name="judul" class="form-control" value="<?php echo $judul ?>">
-    </div>
-    <!-- <small id="emailHelp" class="form-text text-muted">
-        We'll never share your email with anyone else.
-    </small> -->
 
-    <div class="form-group">
-        <label for="link">Link</label>
-        <input type="text" name="link" class="form-control" value="<?php echo $link ?>">
-    </div>
-
-    <div class="form-group mt-5">
-        <input type="submit" name="update" class="btn  btn-primary mt-2" value="Update">
-    </div>
-</form>
+    <?php include "../footer.php" ?>
 </div>
-
-
-
-<!-- Footer -->
-<?php include "../footer.php" ?>      
