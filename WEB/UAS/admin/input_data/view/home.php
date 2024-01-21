@@ -18,7 +18,7 @@
     <?php include "../navbar.php"; ?>
 
     
-<div style="background-image: url(../../../img/bg.jpg); height:86vh; border-radius: 30px; " class="container p-3 mb-2 text-dark">
+<div style="background-image: url(../../../img/bg.jpg); height:86vh; border-radius: 30px;background-position:center; " class="container p-3 mb-2 text-dark">
     
         <h1 class="text-center mt-2">DATA PASIEN</h1>
 

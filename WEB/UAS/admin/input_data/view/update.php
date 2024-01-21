@@ -75,9 +75,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!-- Navbar -->
 <?php include "../navbar.php"; ?>
 
-<div style="background-image: url(../../../img/bg.jpg); height:200vhvh; background-size: cover;border-radius: 30px; "
-    class="container p-1 mb-1 text-black">
-    <a href="home.php" class="btn btn-warning mt-1 ml-2">Kembali</a>
+<div style="background-image: url(../../../img/bg1.jpg); height:200vhvh; background-size: cover;background-position:center;border-radius: 30px;  "
+    class="container p-1 mb-5 text-black">
+    <a href="home.php" class="btn btn-dark mt-1 ml-2">Kembali</a>
 
     <div>
         <div class="container col-md-10">
@@ -106,8 +106,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <textarea type="comments" name="anjuran_nutrisi" class="form-control" required><?= $anjuran_nutrisi ?></textarea>
                     <label for="makanan_dianjurkan" class="for-label">Makanan yang dianjurkan</label>
                     <textarea type="comments" name="makanan_dianjurkan" class="form-control" required><?= $makanan_dianjurkan ?></textarea>
-
-                    <div class="form-group ml-2" style="display: flex; justify-content:space-between">
+</div>
+                    <div class="form-group ml-2" style="display: flex; justify-content:space-between" >
                         <input type="submit" name="update" class="btn btn-primary mt-2" value="Submit">
                     </div>
                 </fieldset>
@@ -116,4 +116,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 
     <?php include "../footer.php" ?>
-</div>
+

@@ -72,7 +72,7 @@ if (isset($_GET['pasien_id'])) {
 </head>
 
 <body>
-<div style="background-image: url(../../../img/bg.jpg); max-height:200vh; background-size: cover; border-radius: 30px; " class="container p-3 mb-2 text-black">
+<div style="background-image: url(../../../img/bg.jpg); max-height:200vh; background-size: cover; background-position:center; border-radius: 30px; " class="container p-3 mb-2 text-black">
         <h3 class="text-center mt-4">Detail Pasien: <?= $nama ?></h3>
 
         <div class="container text-left mb-3" style="display: flex; justify-content: space-between; ">

@@ -40,10 +40,10 @@ if (mysqli_query($koneksi, $query)) {
 
 <?php include "../navbar.php"; ?>
 
-<div style="background-image: url(../../../img/bg1.jpg); height:200vhvh; background-size: cover; border-radius: 30px; " class="container p-1 mb-2 text-black">
+<div style="background-image: url(../../../img/bg1.jpg); height:200vhvh; background-size: cover; border-radius: 30px; background-position:center;" class="container p-1 mb-2 text-black">
 
 
-<a href="home.php" class="btn btn-warning mt-1 ml-2">Kembali</a>
+<a href="home.php" class="btn btn-dark mt-1 ml-2">Kembali</a>
 <div>
 <div class="container col-md-10 ">
     <form action="" method="post" enctype="multipart/form-data">

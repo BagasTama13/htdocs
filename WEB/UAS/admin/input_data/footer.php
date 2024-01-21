@@ -1,5 +1,5 @@
 
-<div class="blockquote-footer fixed-bottom text-center bg-transparent">
+<div class="position-footer fixed-bottom text-center bg-transparent">
         <div class="container ">
             <div class="copyright">
                 <div class="row">
