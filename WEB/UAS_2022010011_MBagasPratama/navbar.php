@@ -17,7 +17,7 @@
                 <a href="about.php" class="nav-item nav-link">Pengertian</a>
                     <a href="pedoman.php" class="nav-item nav-link">Pedoman</a>
                     <a href="Resep.php" class="nav-item nav-link">Resep masakan</a>
-                <a href="../UAS/Admin/login.php" class="nav-item nav-link"><i class="bi bi-person-fill"></i>login</a>
+                <a href="admin/login.php" class="nav-item nav-link"><i class="bi bi-person-fill"></i>login</a>
             </div>
             </div>
         </div>

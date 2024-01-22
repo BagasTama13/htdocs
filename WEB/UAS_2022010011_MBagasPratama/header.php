@@ -3,12 +3,12 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Gagal ginjal</title>
+    <title>Cronic Kidney Disease</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
     
-  <link rel="shortcut icon" href="../UTS-Tama/img/ginjal.png" type="">
+  <link rel="shortcut icon" href="img/ginjal.png" type="">
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">

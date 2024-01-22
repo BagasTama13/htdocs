@@ -27,6 +27,7 @@ include "db.php"
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/style2.css">
 
+    <link rel="shortcut icon" href="../../../../ginjal.png" type="">
     
 
     <title>Input Data Pasien</title>
